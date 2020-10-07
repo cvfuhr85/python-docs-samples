@@ -26,7 +26,10 @@ logger = logging.getLogger()
 
 
 def init_connection_engine():
+    # [START cloud_sql_postgres_sqlalchemy_limit]
     db_config = {
+        # [END cloud_sql_postgres_sqlalchemy_limit]
+
         # [START cloud_sql_postgres_sqlalchemy_limit]
         # Pool size is the maximum number of permanent connections to keep.
         "pool_size": 5,
@@ -54,7 +57,9 @@ def init_connection_engine():
         # reestablished
         "pool_recycle": 1800,  # 30 minutes
         # [END cloud_sql_postgres_sqlalchemy_lifetime]
+    # [START cloud_sql_postgres_sqlalchemy_limit]
     }
+    # [END cloud_sql_postgres_sqlalchemy_limit]
 
     if os.environ.get("DB_HOST"):
         return init_tcp_connection_engine(db_config)
